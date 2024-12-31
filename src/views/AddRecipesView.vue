@@ -1,13 +1,26 @@
 <template>
-  <div>Add Recipe</div>
-  <form @submit.prevent="addRecipe">
+  <h1 class="text-2xl font-bold mb-4">Add Recipe</h1>
+  <form @submit.prevent="addRecipe" class="space-y-4">
     <div>
-      <input type="text" v-model="name" placeholder="Recipe name" required />
+      <input
+        type="text"
+        v-model="name"
+        placeholder="Recipe name"
+        required
+        class="p-2 border rounded w-full"
+      />
     </div>
     <div>
-      <textarea v-model="description" placeholder="Recipe description" required />
+      <textarea
+        v-model="description"
+        class="p-2 border rounded w-full"
+        placeholder="Recipe description"
+        required
+      />
     </div>
-    <button type="submit">Add</button>
+    <button type="submit" class="px-4 py-2 bg-orange-200 text-white rounded hover:bg-orange-700">
+      Add
+    </button>
   </form>
 </template>
 

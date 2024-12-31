@@ -1,8 +1,13 @@
 <template>
   <main>
-    <h1>Recipe Book</h1>
+    <h1 class="text-2xl font-bold mb-4">Recipe Book</h1>
     <div>
-      <input v-model="searchQuery" type="text" placeholder="Search recipes" />
+      <input
+        v-model="searchQuery"
+        type="text"
+        placeholder="Search recipes"
+        class="border rounded mb-4 w-full"
+      />
     </div>
     <RecipeList :recipes="filteredRecipes" />
   </main>

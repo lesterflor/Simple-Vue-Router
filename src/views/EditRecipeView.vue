@@ -1,13 +1,15 @@
 <template>
-  <h1>Edit {{ theData?.name }}</h1>
-  <form @submit.prevent="editRecipe">
+  <h1 class="text-2xl font-bold mb-4">Edit {{ theData?.name }}</h1>
+  <form @submit.prevent="editRecipe" class="space-y-4">
     <div>
-      <input v-model="newName" type="text" />
+      <input v-model="newName" type="text" class="p-2 border rounded w-full" />
     </div>
     <div>
-      <textarea v-model="newDescription" />
+      <textarea v-model="newDescription" class="p-2 border rounded w-full" />
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit" class="px-4 py-2 bg-orange-200 text-white rounded hover:bg-orange-700">
+      Submit
+    </button>
   </form>
 </template>
 
