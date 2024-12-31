@@ -1,19 +1,40 @@
 <template>
   <div>Add Recipe</div>
   <form @submit.prevent="addRecipe">
+    <div>
+      <input type="text" v-model="name" placeholder="Recipe name" required />
+    </div>
+    <div>
+      <textarea v-model="description" placeholder="Recipe description" required />
+    </div>
     <button type="submit">Add</button>
   </form>
 </template>
 
 <script setup lang="ts">
+import { useRecipeStore, type IRecipe } from '@/stores/recipe';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
+const store = useRecipeStore();
+
+const name = ref('');
+const description = ref('');
+
 const router = useRouter();
+
 const addRecipe = () => {
+  // update store
+  const recipe: IRecipe = store.addRecipe({
+    name: name.value,
+    description: description.value
+  });
+
+  // redirect to newly created route
   router.push({
     name: 'recipe',
     params: {
-      id: 1
+      id: recipe.id
     }
   });
 };
